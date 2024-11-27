@@ -1,0 +1,52 @@
+index.html is that single page where everything gets loaded. It does not have any script in it. 
+index.js is the connection point between html & js.
+App.js has a function App that returns html elements. It is imported in index.js to implement.
+In classic react "react-scripts" from package.json is responsible for connecting html file to javascript,
+But in vite react, script is directly written in index.html. Same thing is done by babble in vite library
+While returning something from App function only one element is allowed to return 
+To overcome this issue, fragment(<>..</>) is used. Multiple elements can returned by enclosing them into fragment.
+Wher creating a component (external function to export) the function name must start with Uppercase letter.
+Some libraries like vite, force us to wite the file name extension as '.jsx' 
+React DOM is an implementation of react on web and react native is implementation on mobile.
+
+4th video:
+To understand the internal working of react we have created a custom javascript file.
+In react library, whatever is returned from the function App is parsed into an object 
+which is then rendered onto the HTML page with render function.
+The App function can directly be written in index file. 
+As the App function is return some HTML elements, so If we try to directly write those html
+elements in render function, it is possible but not recommended.
+Similarily as we know the HTML elements returned from App function are parsed to Object in react library,
+so it is also possible to execute if we directly write them in render function, but for that we need to follow some
+convention provided by react createElement function. 
+
+To add javascript variables in html element in App function you can use {variable}. It is called 'Evaluated Expression'.
+You cannot write javascript in it you only write final output of javasript in it.
+Why not? - It gets parsed into object and object can not have javascript if-else or anything else in it.
+
+
+5th video:
+Hooks:
+React allows you to change javascript variables, but to update those variables in User interface you need to use 
+special methods provided by react that are called hooks. Example in Counterproject App.jsx.
+(In React, hooks are special functions that allow you to manage state and other React features in functional components. They enable you to update state variables, triggering UI updates when those variables change. For example, in the Counterproject App.jsx, hooks are utilized to manage the state of the counter component.)
+Hooks return an array of size 2. first is variable, second is method.
+When hooks are used to update any value, they react for whole page and update everywhere on the webpage.
+
+There are several built-in hooks provided by React, including:
+useState: Allows functional components to have local state.
+useEffect: Performs side effects in functional components, such as data fetching, subscriptions, or manually changing the DOM.
+useContext: Accesses the context of a React context provider.
+useReducer: Alternative to useState, for managing more complex state logic.
+useRef: Provides a way to access the DOM or React elements directly.
+useMemo and useCallback: Memoizes values and functions to prevent unnecessary re-renders.
+useLayoutEffect: Similar to useEffect, but runs synchronously after all DOM mutations.
+useDebugValue: Adds debug information to custom hooks.
+
+6th Video
+Why does page reloads?
+Browser loads the whole DOM again and again after each click. It repaints the whole page again.
+Virtual DOM : 
+In VD you can track the DOM in a tree like structure
+Instead of loading whole DOM again a parallel DOM is created and it is compared with browser DOM,
+then only the elements that are changed are updated on the webpage
